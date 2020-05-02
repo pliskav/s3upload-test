@@ -12,138 +12,30 @@ code {
     monospace;
 }
 
-.drag-section-container {
-  padding: 12px;
+.App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .drag-header {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 7px;
-  }
-  .draggable-container {
-    min-width: 40em;
-    max-width: 45em;
-    min-height: 20em;
-    max-height: 18em;
-    background-color: rgba(147, 148, 148, 0.23);
-    padding: 6px;
-    border-radius: 4px;
-    border: 2px dashed rgba(95, 92, 92, 0.2);
-    font-size: 14px;
-    display: flex;
-    margin-bottom: 7px;
-    position: relative;
-    overflow: hidden;
-    #file-browser-input {
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: 0px;
-      position: absolute;
-      color: transparent;
-      opacity: 0;
-    }
-    .files-preview-container {
-      display: flex;
-      width: 100%;
-      height: fit-content;
-      flex-direction: row;
-      flex-wrap: wrap;
-      z-index: 99;
-      overflow-x: auto;
-      overflow-y: hidden;
-      flex-shrink: 0;
-      padding: 5px;
-      .file {
-        width: 5em;
-        height: 58px;
-        background-color: rgba(101, 97, 97, 0.34);
-        position: relative;
-        margin-left: 8px;
-        border: 1px solid #fff;
-        border-radius: 4px;
-        box-shadow: 0px 0px 14px 3px rgba(15, 15, 15, 0.2);
-        flex-shrink: 0;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        .control-container {
-          display: flex;
-          position: absolute;
-          flex-direction: column;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          padding: 0;
-          transition: background, 160ms ease-in-out;
-          &:hover {
-            background-color: rgba(154, 151, 151, 0.29);
-            .remove-btn {
-              visibility: visible;
-            }
-          }
-          .remove-btn {
-            color: #ca4240;
-            width: fit-content;
-            position: absolute;
-            right: -7px;
-            top: -7px;
-            z-index: 99;
-            cursor: pointer;
-            visibility: hidden;
-          }
-          .progress-bar {
-            position: absolute;
-            width: 53px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-self: center;
-          }
-        }
-      }
-    }
-    .helper-text {
-      position: absolute;
-      display: flex;
-      justify-self: center;
-      align-self: center;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 20%;
-      color: #797676;
-      text-align: center;
-    }
-    .file-browser-container {
-      position: absolute;
-      display: flex;
-      justify-self: center;
-      align-self: center;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
 }
 
-.footer-container {
-  width: 100%;
+.drag-section-container {
+  padding: 1em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.drag-header {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 7px;
 }
 #drop-area {
   border: 2px dashed #ccc;
   border-radius: 20px;
-  width: 480px;
+  width: 90%;
   font-family: sans-serif;
-  margin: 100px auto;
   padding: 20px;
 }
 #drop-area.highlight {
@@ -154,23 +46,71 @@ p {
 }
 .my-form {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #gallery {
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-#gallery img {
-  width: 150px;
+.image-container {
+  position: relative;
+  width: 100px;
+  margin-right: 1em;
+}
+.image-container img {
+  width: 90px;
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
 }
+.image-control {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  transition: background, 160ms ease-in-out;
+  &:hover {
+    background-color: rgba(154, 151, 151, 0.29);
+  }
+  .remove-btn {
+    color: #ca4240;
+    width: fit-content;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    z-index: 99;
+    cursor: pointer;
+    visibility: visible;
+  }
+}
+.remove-btn {
+  color: #ca4240;
+  width: fit-content;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  z-index: 99;
+  cursor: pointer;
+  visibility: hidden;
+}
 .button {
   display: inline-block;
   padding: 10px;
-  background: #ccc;
+  background: #84b6a3;
   cursor: pointer;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #84b6a3;
+  color: white;
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 .button:hover {
   background: #ddd;
@@ -183,4 +123,36 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.progress-container {
+  width: 300px;
+}
+.progress-line {
+  width: 20%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #6bccf9;
+  transition: width 0.3s ease-in-out;
+}
+.aws-gallery {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.aws-images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.aws-gallery p {
+  text-align: center;
+  color: darkred;
+  font-size: 2em;
+  font-weight: 700;
+}
+.aws-images img {
+  width: 150px;
+  align-self: center;
+  padding: 1em;
 }
